@@ -71,7 +71,7 @@ namespace net.blomart.signinstats
         
         const string loginUrl = "https://login.windows.net";
         const string resource = "https://graph.microsoft.com";
-        const string getCompany = "/users/{0}?$select=userprincipalname,companyname";
+        const string getUserInfos = "/users/{0}?$select=userprincipalname,companyname";
         const string batchQuery = "{0}/beta/$batch";
         const int wait = 15;
         const int maxwait = 600;
@@ -267,7 +267,7 @@ namespace net.blomart.signinstats
             // prepare requests
             var requests = new BatchRequests();
             foreach(var upn in toResolve) {
-                requests.Add(HttpMethod.Get,string.Format(getCompany,upn));
+                requests.Add(HttpMethod.Get,string.Format(getUserInfos,upn));
             }
             log.LogInformation("starting batch query for companies");
             var j = 0;

@@ -1,5 +1,7 @@
 # SigninStats
 
+> **TODO**: render the user informations more flexible. Currently only the company name is collected.
+
 Azure AD signing logs can be sent to log analytics :)
 
 On some tenants these logs can take up quite a bit of storage. 
@@ -17,10 +19,10 @@ Ok... bear with me there...
                                          +-----------+
                                          | Azure AD  |
                                          | User info |
-                                         +-----------+
+                                         +-----+-----+
 +---------+                                    |
 | sign-in |   +-------+   +-----------+   +----v-----+   +-----------+
-|   logs  |-->| event |-->| stream    |-->| Azure    |-->| Log       |
+|   logs  +---> event +---> stream    +---> Azure    +---> Log       |
 | ------- |   |  hub  |   | analytics |   | function |   | Analytics |
 | ------- |   +-------+   +-----------+   +----^-----+   +-----------+
 +---------/                                    |
@@ -34,3 +36,17 @@ Ok... bear with me there...
 2. Stream Analytics picks up event from event hub and concatenate them per time slice (i.e. hours). Events are batched to an Azure function for enrichement.
 3. An Azure function recieves the events batch and fetches user information from Azure AD (companyname) and caches it to redis
 4. The aggregated and enriched information is sent to log analytics
+
+## Setup
+
+> **TODO**: complete setup instructions
+
+### Log Analytics
+
+### Azure Function
+
+### Event Hub
+
+### Stream Analytics
+
+### Sign-in Logs
