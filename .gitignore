@@ -265,3 +265,6 @@ __pycache__/
 
 # ignore azure blob storage
 __*
+
+# ignore vscode settings
+.vscode
