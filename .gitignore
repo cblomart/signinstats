@@ -267,4 +267,4 @@ __pycache__/
 __*
 
 # ignore vscode settings
-.vscode
+.vscode/
